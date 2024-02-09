@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo</title>
+  <style>
+    .CardList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+    }
+    .CardList_Item {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 4;
+      gap: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .CardList_Img {
+      width: 100%;
+      height: auto;
+    }
+    .CardList_Title {
+      margin: 0;
+    }
+    .CardList_Description {
+      margin: 0;
+    }
+    .CardList_Link {
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <ul class="CardList">
+    <!-- カード -->
+    <li class="CardList_Item">
+      <img class="CardList_Img" src="card-image.png" alt="">
+      <h2 class="CardList_Title">タイトル1</h2>
+      <p class="CardList_Description">タイトル1の概要</p>
+      <a class="CardList_Link" href="#">「タイトル1」詳細へ</a>
+      <p class="CardList_Description">タイトル1の補足</p>
+    </li>
+    <!-- カード -->
+    <li class="CardList_Item">
+      <img class="CardList_Img" src="card-image.png" alt="">
+      <h2 class="CardList_Title">タイトル2タイトル2タイトル2</h2>
+      <p class="CardList_Description">タイトル2の概要</p>
+      <a class="CardList_Link" href="#">「タイトル2」詳細へ</a>
+    </li>
+    <!-- カード -->
+    <li class="CardList_Item">
+      <img class="CardList_Img" src="card-image.png" alt="">
+      <h2 class="CardList_Title">タイトル3タイトル3タイトル3</h2>
+      <p class="CardList_Description">タイトル3の概要タイトル3の概要タイトル3の概要</p>
+      <a class="CardList_Link" href="#">「タイトル3」詳細へ</a>
+    </li>
+    <!-- カード -->
+    <li class="CardList_Item">
+      <img class="CardList_Img" src="card-image.png" alt="">
+      <h2 class="CardList_Title">タイトル4タイトル4タイトル4</h2>
+      <p class="CardList_Description">タイトル4の概要タイトル4の概要タイトル4の概要</p>
+      <a class="CardList_Link" href="#">「タイトル4」詳細へ</a>
+    </li>
+    <!-- 省略 -->
+  </ul>
+
+</body>
+</html>
