@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo</title>
+  <style>
+  div {
+    border: 3px solid #000;
+    padding: 10px;
+    min-height: 100px;
+  }
+
+  /* 親：グリッドコンテナ */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 50px 150px 200px;
+    gap: 10px;
+    width: 420px;
+  }
+
+  .grid-item {
+    background-color: skyblue;
+  }
+
+  .no-subgrid-item {
+    background-color: salmon;
+  }
+
+  /* 子：グリッドアイテムかつグリッドコンテナ（擬似的なサブグリッド） */
+  .grid-item.no-subgrid {
+    grid-column: span 3;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 37px 150px 187px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item no-subgrid">
+    <div class="no-subgrid-item">4</div>
+    <div class="no-subgrid-item">5</div>
+    <div class="no-subgrid-item">6</div>
+  </div>
+</div>
+
+</body>
+</html>
