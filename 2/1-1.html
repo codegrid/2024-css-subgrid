@@ -1,25 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo</title>
-  <style>
-  ul + ul {
-    margin-top: 30px;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <style>
+      .List + .List {
+        margin-top: 30px;
+      }
 
-  ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+      .List {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-    & li {
-      
-      & a {
+      .List_Link {
         display: grid;
         grid-template-columns: 25px 1fr auto;
         column-gap: 30px;
@@ -28,44 +27,41 @@
         padding: 10px;
         text-decoration: none;
         color: currentColor;
-        
-        &:hover {
-          background-color: #ccc;
-        }
-        
-        & :is(.date, .part) {
-          text-align: end;
-        }
       }
-    }
-  }
-  </style>
-</head>
-<body>
 
-<ul>
-  <li>
-    <a href="#">
-      <span class="part">1.</span>
-      <span>タイトル1タイトル1タイトル1</span>
-      <span class="date">2022年4月23日</span>
-    </a>
-  </li>
-  <li>
-    <a href="#">
-      <span class="part">2.</span>
-      <span>タイトル2タイトル2タイトル2</span>
-      <span>2022年5月26日</span>
-    </a>
-  </li>
-  <li>
-    <a href="#">
-      <span class="part">99.</span>
-      <span>タイトル99タイトル99タイトル99</span>
-      <span class="date">2022年6月1日</span>
-    </a>
-  </li>
-</ul>
+      .List_Link:hover {
+        background-color: #ccc;
+      }
 
-</body>
+      .List_Date,
+      .List_Part {
+        text-align: end;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="List">
+      <li class="List_Item">
+        <a class="List_Link" href="#">
+          <span class="List_Part">1.</span>
+          <span>タイトル1タイトル1タイトル1</span>
+          <span class="List_Date">2022年4月23日</span>
+        </a>
+      </li>
+      <li class="List_Item">
+        <a class="List_Link" href="#">
+          <span class="List_Part">2.</span>
+          <span>タイトル2タイトル2タイトル2</span>
+          <span class="List_Date">2022年5月26日</span>
+        </a>
+      </li>
+      <li class="List_Item">
+        <a class="List_Link" href="#">
+          <span class="List_Part">99.</span>
+          <span>タイトル99タイトル99タイトル99</span>
+          <span class="List_Date">2022年6月1日</span>
+        </a>
+      </li>
+    </ul>
+  </body>
 </html>
