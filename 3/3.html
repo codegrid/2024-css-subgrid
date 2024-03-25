@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .Grid8 {
+        container-type: inline-size;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 24px;
+        padding: 8px;
+        width: 100%;
+        border: 3px solid tomato;
+        & > * {
+          grid-column: 1 / -1;
+        }
+      }
+
+      .Header h1 {
+        margin: 0;
+        font-size: 1.5em;
+        padding: 8px;
+        color: #fff;
+        background-color: #000;
+      }
+
+      .Heading2 {
+        margin: 0;
+        background-color: #ccc;
+        padding: 4px;
+      }
+
+      .LargeMedia {
+        align-self: start;
+        display: grid;
+        grid-template-columns: subgrid;
+      }
+
+      .LargeMedia_Img {
+        grid-column: 1 / 6;
+        display: block;
+        width: 100%;
+        height: auto;
+        @container (max-width: 500px) {
+          grid-column: 1 / -1;
+        }
+      }
+
+      .LargeMedia_Text {
+        grid-column: 6 / -1;
+
+        @container (max-width: 500px) {
+          grid-column: 1 / -1;
+        }
+
+        & h3 {
+          margin: 0;
+          font-size: 2.5em;
+          line-height: 1.4;
+        }
+
+        & p {
+          margin: 0;
+          font-size: 1.2em;
+          line-height: 1.4;
+        }
+      }
+
+      .MediumMedia {
+        grid-column: span 4;
+        grid-row: span 3;
+        display: grid;
+        gap: 8px;
+        grid-template-rows: subgrid;
+
+        @container (max-width: 500px) {
+          grid-column: 1 / -1;
+        }
+
+        & h3 {
+          margin: 0;
+          font-size: 1.6em;
+        }
+
+        & p {
+          margin: 0;
+          font-size: 1em;
+        }
+
+        & img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .SmallMedia {
+        grid-column: span 2;
+        grid-row: span 3;
+        display: grid;
+        grid-template-rows: subgrid;
+        gap: 4px;
+
+        @container (max-width: 500px) {
+          grid-column: span 4;
+        }
+
+        & h3 {
+          margin: 0;
+          font-size: 1em;
+        }
+
+        & p {
+          margin: 0;
+          font-size: 0.8em;
+        }
+
+        & img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .Footer {
+        display: grid;
+        grid-template-columns: subgrid;
+        padding: 8px;
+        color: #fff;
+        background-color: #000;
+        ul {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-auto-flow: dense;
+          grid-template-columns: subgrid;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        li {
+          grid-column-start: 1;
+          grid-column-end: span 2;
+          &:nth-child(n+5) {
+            grid-column-start: 3;
+          }
+          &:nth-child(n+9) {
+            grid-column-start: 5;
+          }
+          &:nth-child(n+13) {
+            grid-column-start: 7;
+          }
+          @container (max-width: 500px) {
+            &,
+            &:nth-child(n+5),
+            &:nth-child(n+9),
+            &:nth-child(n+13) {
+            grid-column: 1 / -1;
+          }
+        }
+        a {
+          color: inherit;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Grid8">
+      <div class="Header"><h1>デモ</h1></div>
+
+      <h2 class="Heading2">見出し1</h2>
+
+      <div class="LargeMedia">
+        <img
+          class="LargeMedia_Img"
+          src="https://dummyimage.com/1600x900/000/fff.png"
+          alt="画像：ダミー"
+          width="1600"
+          height="900"
+        />
+        <div class="LargeMedia_Text">
+          <h3>見出しテキストです</h3>
+          <p>
+            ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。
+          </p>
+        </div>
+      </div>
+
+      <h2 class="Heading2">見出し2</h2>
+
+      <div class="MediumMedia">
+        <img
+          class="MediumMedia_Img"
+          src="https://dummyimage.com/400x300/000/fff.png"
+          alt="画像：ダミー"
+          width="400"
+          height="300"
+        />
+        <h3>見出しテキストですです</h3>
+        <p>
+          ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。
+        </p>
+      </div>
+
+      <div class="MediumMedia">
+        <img
+          class="MediumMedia_Img"
+          src="https://dummyimage.com/400x300/000/fff.png"
+          alt="画像：ダミー"
+          width="400"
+          height="300"
+        />
+        <h3>見出しテキストです</h3>
+        <p>
+          ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。
+        </p>
+      </div>
+
+      <h2 class="Heading2">見出し3</h2>
+
+      <div class="SmallMedia">
+        <img
+          class="SmallMedia_Img"
+          src="https://dummyimage.com/100x100/000/fff.png"
+          alt="画像：ダミー"
+          width="100"
+          height="100"
+        />
+        <h3>見出しです</h3>
+        <p>ダミーテキストです。ダミーテキストです。</p>
+      </div>
+
+      <div class="SmallMedia">
+        <img
+          class="SmallMedia_Img"
+          src="https://dummyimage.com/100x100/000/fff.png"
+          alt="画像：ダミー"
+          width="100"
+          height="100"
+        />
+        <h3>見出しです見出しです</h3>
+        <p>ダミーテキストです。ダミーテキストです。</p>
+      </div>
+
+      <div class="SmallMedia">
+        <img
+          class="SmallMedia_Img"
+          src="https://dummyimage.com/100x100/000/fff.png"
+          alt="画像：ダミー"
+          width="100"
+          height="100"
+        />
+        <h3>見出しです</h3>
+        <p>ダミーテキストです。ダミーテキストです。</p>
+      </div>
+
+      <div class="SmallMedia">
+        <img
+          class="SmallMedia_Img"
+          src="https://dummyimage.com/100x100/000/fff.png"
+          alt="画像：ダミー"
+          width="100"
+          height="100"
+        />
+        <h3>見出しです見出しで</h3>
+        <p>ダミーテキストです。ダミーテキストです。</p>
+      </div>
+
+      <div class="Footer">
+        <ul>
+          <li>
+            <a href="#">リンク1</a>
+          </li>
+          <li>
+            <a href="#">リンク2</a>
+          </li>
+          <li>
+            <a href="#">リンク3</a>
+          </li>
+          <li>
+            <a href="#">リンク4</a>
+          </li>
+          <li>
+            <a href="#">リンク5</a>
+          </li>
+          <li>
+            <a href="#">リンク6</a>
+          </li>
+          <li>
+            <a href="#">リンク7</a>
+          </li>
+          <li>
+            <a href="#">リンク8</a>
+          </li>
+          <li>
+            <a href="#">リンク9</a>
+          </li>
+          <li>
+            <a href="#">リンク10</a>
+          </li>
+          <li>
+            <a href="#">リンク11</a>
+          </li>
+          <li>
+            <a href="#">リンク12</a>
+          </li>
+          <li>
+            <a href="#">リンク13</a>
+          </li>
+          <li>
+            <a href="#">リンク14</a>
+          </li>
+          <li>
+            <a href="#">リンク15</a>
+          </li>
+          <li>
+            <a href="#">リンク16</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <style>
+      .Container {
+        display: grid;
+        grid-template-columns: [full-start] minmax(10px, 1fr) [main-start] minmax(
+            auto,
+            250px
+          ) [main-end] minmax(10px, 1fr) [full-end];
+        border: 3px dashed tomato;
+        row-gap: 10px;
+        padding: 10px;
+      }
+
+      .Container_Item {
+        grid-column: main;
+        padding: 20px 10px;
+        background-color: #ff7272;
+      }
+
+      .Container_Item.-full {
+        grid-column: full;
+        display: grid;
+        row-gap: 10px;
+        grid-template-columns: subgrid;
+        background-color: #00a3d7;
+      }
+
+      .Container_SubItem {
+        padding: 5px;
+        background-color: #fff;
+        grid-column: main;
+      }
+
+      .Container_SubItem.-full {
+        grid-column: full;
+        background-color: #f1ff00;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Container">
+      <div class="Container_Item">コンテンツ1</div>
+      <div class="Container_Item -full">
+        <div class="Container_SubItem">コンテンツ2-1</div>
+        <div class="Container_SubItem -full">コンテンツ2-2</div>
+        <div class="Container_SubItem">コンテンツ2-3</div>
+      </div>
+      <div class="Container_Item">コンテンツ3</div>
+      <div class="Container_Item -full">
+        <div class="Container_SubItem">コンテンツ4-1</div>
+        <div class="Container_SubItem -full">コンテンツ4-2</div>
+        <div class="Container_SubItem">コンテンツ4-3</div>
+      </div>
+      <div class="Container_Item">コンテンツ5</div>
+    </div>
+  </body>
+</html>
